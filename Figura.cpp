@@ -2,7 +2,6 @@
 #define JOC_H
 
 #include "Figura.h"
-//#include "Tauler.h"
 #include <string>
 using namespace std;
 
@@ -112,21 +111,13 @@ Figura::Figura(TipusFigura tipus, int estat)
     //COLOCA LA FIGURA A L'ESTAT DESITJAT
     if (estat == 3)
     {
-        //m_estat = 0;
-
-        //antihorari
-        //estatActualitzat = girarFigura(GIR_ANTI_HORARI); 
         girarFigura(GIR_ANTI_HORARI);
     }
 
     else
     {
-        //m_estat = 0;
-
         for (int i = 0; i < estat; i++)
         {
-            //horari
-            //estatActualitzat = girarFigura(GIR_HORARI);
             girarFigura(GIR_HORARI);
         }
     }
@@ -154,13 +145,10 @@ void Figura::posicionsFigures(const string& nomArxiu)
 
 void Figura::girarFigura(DireccioGir sentit)
 {
-    //bool canviFet = false;
     int nFilesFigura, nColumnesFigura;
 
     if (m_tipus != FIGURA_O) //LA FIGURA_O (EL QUADRAT) QUAN GIRA ES QUEDA IGUAL
     {
-        //canviFet = true;
-
         //ASSIGNA EL NOMBRE DE FILES I COLUMNES DE LA MATRIU QUE OCUPA LA FIGURA AL GIRAR
         if (m_tipus == FIGURA_I)
         {
@@ -192,7 +180,6 @@ void Figura::girarFigura(DireccioGir sentit)
                 }
             }
         }
-
         else //GIR_ANTI_HORARI
         {
             //GIRA LA MATRIU 90 GRAUS EN SENTIT ANTIHORARI
@@ -210,9 +197,7 @@ void Figura::girarFigura(DireccioGir sentit)
                 }
             }
         }
-    }
-
-    
+    } 
 }
 
 
@@ -246,144 +231,4 @@ void Figura::imprimeixFigura()
     }
 }
 
-
-
-
-// codi anterior gira figura
-// 
-// 
-/*switch (m_tipus){
-    case FIGURA_J:
-        prefix = "FIGURA_J_";
-        m_color = COLOR_BLAUFOSC;
-        break;
-    case FIGURA_L:
-        prefix = "FIGURA_L_";
-        m_color = COLOR_TARONJA;
-        break;
-    case FIGURA_T:
-        prefix = "FIGURA_T_";
-        m_color = COLOR_MAGENTA;
-        break;
-    case FIGURA_S:
-        prefix = "FIGURA_S_";
-        m_color = COLOR_VERD;
-        break;
-    case FIGURA_Z:
-        prefix = "FIGURA_Z_";
-        m_color = COLOR_VERMELL;
-        break;
-    case FIGURA_I:
-        prefix = "FIGURA_I_";
-        m_color = COLOR_BLAUCEL;
-        break;
-    case FIGURA_O:
-        prefix = "FIGURA_O_";
-        m_color = COLOR_GROC;
-        break;
-    default:
-        canviFet = false;
-        break;
-}
-
-switch (m_estat)
-{
-case 0:
-    sufix = "1.txt";
-    break;
-case 1:
-    sufix = "2.txt";
-    break;
-case 2:
-    sufix = "3.txt";
-    break;
-case 3:
-    sufix = "4.txt";
-    break;
-default:
-    canviFet = false;
-    break;
-}
-
-arxiu = prefix + sufix;
-
-posicionsFigures(arxiu); */
-
-//ACTUALITZAR ESTAT DE LA FIGURA
-    /*switch (m_estat)
-    {
-    case 0:
-        m_estat = (sentit == GIR_HORARI) ? ++m_estat : 3;
-        break;
-    case 3:
-        m_estat = (sentit == GIR_HORARI) ? 0 : --m_estat;
-        break;
-    default:
-        m_estat = (sentit == GIR_HORARI) ? ++m_estat : --m_estat;
-        break;
-    }*/
-
-    //canviFet = true;
-
-
-    /*string arxiu = "", prefix, sufix;
-    bool canviFet = true;
-
-    switch (m_tipus)
-    {
-    case FIGURA_J:
-        prefix = "FIGURA_J_";
-        break;
-    case FIGURA_L:
-        prefix = "FIGURA_L_";
-        break;
-    case FIGURA_T:
-        prefix = "FIGURA_T_";
-        break;
-    case FIGURA_S:
-        prefix = "FIGURA_S_";
-        break;
-    case FIGURA_Z:
-        prefix = "FIGURA_Z_";
-        break;
-    case FIGURA_I:
-        prefix = "FIGURA_I_";
-        break;
-    case FIGURA_O:
-        prefix = "FIGURA_O_";
-        break;
-    default:
-        canviFet = false;
-        break;
-    }
-
-    switch (m_estat)
-    {
-    case 0:
-        sufix = (sentit == GIR_HORARI) ? "2.txt" : "4.txt";
-        m_estat = (sentit == GIR_HORARI) ? 1 : 3;
-        break;
-    case 1:
-        sufix = (sentit == GIR_HORARI) ? "3.txt" : "1.txt";
-        m_estat = (sentit == GIR_HORARI) ? 2 : 0;
-        break;
-    case 2:
-        sufix = (sentit == GIR_HORARI) ? "4.txt" : "2.txt";
-        m_estat = (sentit == GIR_HORARI) ? 3 : 1;
-        break;
-    case 3:
-        sufix = (sentit == GIR_HORARI) ? "1.txt" : "3.txt";
-        m_estat = (sentit == GIR_HORARI) ? 0 : 2;
-        break;
-    default:
-        canviFet = false;
-        break;
-    }
-
-    arxiu = prefix + sufix;
-
-    posicionsFigures(arxiu);
-
-    return canviFet;
-    */
 #endif
