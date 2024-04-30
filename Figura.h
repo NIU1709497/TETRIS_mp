@@ -51,8 +51,6 @@ public:
     void girarFigura(DireccioGir sentit);
     void posicionsFigures(const string& nomArxiu);
 
-    void imprimeixFigura();
-
     //GETERS I SETERS
     void setTipus(TipusFigura tipus) { m_tipus = tipus; }
     void setColor(ColorFigura color) { m_color = color; }

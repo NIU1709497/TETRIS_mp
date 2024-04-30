@@ -173,7 +173,6 @@ void Figura::girarFigura(DireccioGir sentit)
                     int numTemporal = m_formaFiguraActual[fila][columna];
 
                     m_formaFiguraActual[fila][columna] = m_formaFiguraActual[nFilesFigura - 1 - columna][fila];
-
                     m_formaFiguraActual[nFilesFigura - 1 - columna][fila] = m_formaFiguraActual[nFilesFigura - 1 - fila][nColumnesFigura - 1 - columna];
                     m_formaFiguraActual[nFilesFigura - 1 - fila][nColumnesFigura - 1 - columna] = m_formaFiguraActual[columna][nColumnesFigura - 1 - fila];
                     m_formaFiguraActual[columna][nColumnesFigura - 1 - fila] = numTemporal;
@@ -190,7 +189,6 @@ void Figura::girarFigura(DireccioGir sentit)
                     int numTemporal = m_formaFiguraActual[fila][columna];
 
                     m_formaFiguraActual[fila][columna] = m_formaFiguraActual[columna][nColumnesFigura - 1 - fila];
-
                     m_formaFiguraActual[columna][nColumnesFigura - 1 - fila] = m_formaFiguraActual[nFilesFigura - 1 - fila][nColumnesFigura - 1 - columna];
                     m_formaFiguraActual[nFilesFigura - 1 - fila][nColumnesFigura - 1 - columna] = m_formaFiguraActual[nColumnesFigura - 1 - columna][fila];
                     m_formaFiguraActual[nFilesFigura - 1 - columna][fila] = numTemporal;
@@ -212,23 +210,6 @@ void Figura::cauFigura()
 {
     ++m_posicioY;
     //com la figura esta caient, la figura descendeix cap a valors mes grans de Y, per tant augmentem la posicio Y
-}
-
-
-//NECESSARIA PER FER LES COMPROVACIONS DE GIRS
-void Figura::imprimeixFigura()
-{
-    for (int i = 0; i < MAX_AMPLADA; i++)
-    {
-        cout << "|";
-
-        for (int j = 0; j < MAX_ALCADA; j++)
-        {
-            cout << m_formaFiguraActual[i][j] << " ";
-        }
-
-        cout << "|" << endl;
-    }
 }
 
 #endif
