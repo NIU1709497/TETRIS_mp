@@ -109,44 +109,6 @@ Figura::Figura(TipusFigura tipus, int estat)
     }
 
 
-    /*switch (m_tipus)
-    {
-    case FIGURA_J:
-        arxiu = "FIGURA_J_1.txt";
-        m_color = COLOR_BLAUFOSC;
-        break;
-    case FIGURA_L:
-        arxiu = "FIGURA_L_1.txt";
-        m_color = COLOR_TARONJA;
-        break;
-    case FIGURA_T:
-        arxiu = "FIGURA_T_1.txt";
-        m_color = COLOR_MAGENTA;
-        break;
-    case FIGURA_S:
-        arxiu = "FIGURA_S_1.txt";
-        m_color = COLOR_VERD;
-        break;
-    case FIGURA_Z:
-        arxiu = "FIGURA_Z_1.txt";
-        m_color = COLOR_VERMELL;
-        break;
-    case FIGURA_I:
-        arxiu = "FIGURA_I_1.txt";
-        m_color = COLOR_BLAUCEL;
-        break;
-    case FIGURA_O:
-        arxiu = "FIGURA_O_1.txt";
-        m_color = COLOR_GROC;
-        break;
-    default:
-        estatActualitzat = false;
-        break;
-    }
-
-    posicionsFigures(arxiu);
-    */
-
     //COLOCA LA FIGURA A L'ESTAT DESITJAT
     if (estat == 3)
     {
@@ -168,65 +130,6 @@ Figura::Figura(TipusFigura tipus, int estat)
             girarFigura(GIR_HORARI);
         }
     }
-
-
-    /*switch (m_tipus)
-    {
-    case FIGURA_J:
-        prefix = "FIGURA_J_";
-        m_color = COLOR_BLAUFOSC;
-        break;
-    case FIGURA_L:
-        prefix = "FIGURA_L_";
-        m_color = COLOR_TARONJA;
-        break;
-    case FIGURA_T:
-        prefix = "FIGURA_T_";
-        m_color = COLOR_MAGENTA;
-        break;
-    case FIGURA_S:
-        prefix = "FIGURA_S_";
-        m_color = COLOR_VERD;
-        break;
-    case FIGURA_Z:
-        prefix = "FIGURA_Z_";
-        m_color = COLOR_VERMELL;
-        break;
-    case FIGURA_I:
-        prefix = "FIGURA_I_";
-        m_color = COLOR_BLAUCEL;
-        break;
-    case FIGURA_O:
-        prefix = "FIGURA_O_";
-        m_color = COLOR_GROC;
-        break;
-    default:
-        canviFet = false;
-        break;
-    }
-
-    switch (m_estat)
-    {
-    case 0:
-        sufix = "1.txt";
-        break;
-    case 1:
-        sufix = "2.txt";
-        break;
-    case 2:
-        sufix = "3.txt";
-        break;
-    case 3:
-        sufix = "4.txt";
-        break;
-    default:
-        canviFet = false;
-        break;
-    }
-
-    arxiu = prefix + sufix;
-
-    posicionsFigures(arxiu);*/
 }
 
 void Figura::posicionsFigures(const string& nomArxiu)
@@ -309,7 +212,104 @@ void Figura::girarFigura(DireccioGir sentit)
         }
     }
 
-    //ACTUALITZAR ESTAT DE LA FIGURA
+    
+}
+
+
+void Figura::movimentHoritzontal(int direccio)
+{
+    m_posicioX += direccio;
+    //si volem anar a la dreta, direccio=1, m_posicio augmenta en 1
+    //si volem anar a la esquerra, direccio = -1, m_posicio disminueix en 1
+}
+
+void Figura::cauFigura()
+{
+    ++m_posicioY;
+    //com la figura esta caient, la figura descendeix cap a valors mes grans de Y, per tant augmentem la posicio Y
+}
+
+
+//NECESSARIA PER FER LES COMPROVACIONS DE GIRS
+void Figura::imprimeixFigura()
+{
+    for (int i = 0; i < MAX_AMPLADA; i++)
+    {
+        cout << "|";
+
+        for (int j = 0; j < MAX_ALCADA; j++)
+        {
+            cout << m_formaFiguraActual[i][j] << " ";
+        }
+
+        cout << "|" << endl;
+    }
+}
+
+
+
+
+// codi anterior gira figura
+// 
+// 
+/*switch (m_tipus){
+    case FIGURA_J:
+        prefix = "FIGURA_J_";
+        m_color = COLOR_BLAUFOSC;
+        break;
+    case FIGURA_L:
+        prefix = "FIGURA_L_";
+        m_color = COLOR_TARONJA;
+        break;
+    case FIGURA_T:
+        prefix = "FIGURA_T_";
+        m_color = COLOR_MAGENTA;
+        break;
+    case FIGURA_S:
+        prefix = "FIGURA_S_";
+        m_color = COLOR_VERD;
+        break;
+    case FIGURA_Z:
+        prefix = "FIGURA_Z_";
+        m_color = COLOR_VERMELL;
+        break;
+    case FIGURA_I:
+        prefix = "FIGURA_I_";
+        m_color = COLOR_BLAUCEL;
+        break;
+    case FIGURA_O:
+        prefix = "FIGURA_O_";
+        m_color = COLOR_GROC;
+        break;
+    default:
+        canviFet = false;
+        break;
+}
+
+switch (m_estat)
+{
+case 0:
+    sufix = "1.txt";
+    break;
+case 1:
+    sufix = "2.txt";
+    break;
+case 2:
+    sufix = "3.txt";
+    break;
+case 3:
+    sufix = "4.txt";
+    break;
+default:
+    canviFet = false;
+    break;
+}
+
+arxiu = prefix + sufix;
+
+posicionsFigures(arxiu); */
+
+//ACTUALITZAR ESTAT DE LA FIGURA
     /*switch (m_estat)
     {
     case 0:
@@ -386,37 +386,4 @@ void Figura::girarFigura(DireccioGir sentit)
 
     return canviFet;
     */
-}
-
-
-void Figura::movimentHoritzontal(int direccio)
-{
-    m_posicioX += direccio;
-    //si volem anar a la dreta, direccio=1, m_posicio augmenta en 1
-    //si volem anar a la esquerra, direccio = -1, m_posicio disminueix en 1
-}
-
-void Figura::cauFigura()
-{
-    ++m_posicioY;
-    //com la figura esta caient, la figura descendeix cap a valors mes grans de Y, per tant augmentem la posicio Y
-}
-
-
-//NECESSARIA PER FER LES COMPROVACIONS DE GIRS
-void Figura::imprimeixFigura()
-{
-    for (int i = 0; i < MAX_AMPLADA; i++)
-    {
-        cout << "|";
-
-        for (int j = 0; j < MAX_ALCADA; j++)
-        {
-            cout << m_formaFiguraActual[i][j] << " ";
-        }
-
-        cout << "|" << endl;
-    }
-}
-
 #endif
