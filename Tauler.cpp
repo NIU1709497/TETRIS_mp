@@ -36,7 +36,7 @@ int Tauler::eliminarFila(int const fila, int const columna)
 
 		while ((j < MAX_COL) && (eliminaFila))
 		{
-			if (m_tauler[i][j] == 0) //comprova les columnes si la fila no es plena
+			if (m_tauler[i][j] == COLOR_NEGRE) //comprova les columnes si la fila no es plena
 			{
 				eliminaFila = false;
 			}

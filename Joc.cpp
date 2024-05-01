@@ -59,7 +59,7 @@ void Joc::escriuFiguraAlTauler()
 		{
 			int casella = m_figuraCaient.getCasellaFigura(i, j);
 
-			if (casella != 0)
+			if (casella != COLOR_NEGRE)
 			{
 				m_taulerJoc.setCasella(fila + i, columna + j, casella);
 			}
@@ -80,7 +80,7 @@ void Joc::esborraFiguraDelTauler()
 		{
 			int casella = m_figuraCaient.getCasellaFigura(i, j);
 
-			if (casella != 0)
+			if (casella != COLOR_NEGRE)
 			{
 				m_taulerJoc.setCasella(fila + i, columna + j, COLOR_NEGRE);
 			}
@@ -210,7 +210,7 @@ bool Joc::comprovaMoviment(Figura& figuraSeguent)
 			//coordenades de l'extrem supeior esquerre de la matriu de la figura al tauler
 
 			//comprovar si la sigura seguent xoca amb alguna altra del tauler
-			if ((figuraSeguent.getCasellaFigura(fila, columna) != 0) && (m_taulerJoc.getCasella(posYFiguraAlTauler, posXFiguraAlTauler) != 0))
+			if ((figuraSeguent.getCasellaFigura(fila, columna) != COLOR_NEGRE) && (m_taulerJoc.getCasella(posYFiguraAlTauler, posXFiguraAlTauler) != COLOR_NEGRE))
 			{
 				movimentCorrecte = false;
 				//si el tauler en aquella posicio es 0, llavors la casella es podra colocar
@@ -218,7 +218,7 @@ bool Joc::comprovaMoviment(Figura& figuraSeguent)
 			}
 
 			//comprovar si hi ha alguna casella de la figura que se surt del tauler
-			if ((figuraSeguent.getCasellaFigura(fila, columna) != 0) && (m_taulerJoc.comprovaSiCasellaForaTauler(posYFiguraAlTauler, posXFiguraAlTauler)))
+			if ((figuraSeguent.getCasellaFigura(fila, columna) != COLOR_NEGRE) && (m_taulerJoc.comprovaSiCasellaForaTauler(posYFiguraAlTauler, posXFiguraAlTauler)))
 			{
 				movimentCorrecte = false;
 				//si la casella == 0, no pasa res, moviment correcte
